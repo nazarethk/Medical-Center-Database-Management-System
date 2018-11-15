@@ -57,7 +57,7 @@
             
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control"  name="apassword" required>
+          <input type="password" class="form-control"  minlength="8" name="apassword" required>
         </div>
 
         <div class="form-group">
@@ -116,7 +116,7 @@
             
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control"  name="dpassword" required>
+          <input type="password" class="form-control" minlength="8" name="dpassword" required>
         </div>
 
         <div class="form-group">

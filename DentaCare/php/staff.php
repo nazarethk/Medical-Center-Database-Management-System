@@ -80,8 +80,8 @@
       </span>
     </div>
 
-    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-      <input class="input100" type="password" name="password" placeholder="Password">
+    <div class="wrap-input100 validate-input" data-validate = "Password is required with a minimum of 8 characters">
+      <input class="input100" type="password" name="password" minlength="5" placeholder="Password">
       <span class="focus-input100"></span>
       <span class="symbol-input100">
         <i class="fa fa-lock" aria-hidden="true"></i>
