@@ -51,7 +51,7 @@
         echo '<script type="text/javascript"> window.location = "add_patient.php" </script>';
 	  }
     }else if(isset($_POST['remail'])){
-      $i = register($_POST['remail'],$_POST['rpassword'],$_POST['rfullname'],"users");
+      $i = register($_POST['remail'],$_POST['rpassword'],$_POST['rfullname'],$_POST['rphonenumber'],$_POST['rBloodType'],"users");
       if($i==1){
         echo '<script type="text/javascript"> window.location = "add_patient.php"</script>';
       }

@@ -30,16 +30,14 @@
         $password_hashed = hash("sha256", $password);
         
         $sql = "SELECT COUNT(*) FROM $table WHERE email = '$email_id' AND password = '$password_hashed';";
-        //die($sql);
+        
         $result = $connection->query($sql);
 
         $num_rows = (int) $result->fetch_array()['0'];
 
         if ($num_rows > 1) {
-            //send email to sysadmin that my site has been hacked
               return 0;
         } elseif ($num_rows == 0) {
-            //echo status('no-match');
             $_SESSION['wrongPass']=true;
             return 0;
         } else {
@@ -75,34 +73,7 @@
         }
     }
 
-    function registerU($email_id_unsafe, $password_unsafe, $full_name_unsafe, $phone_number_unsafe)
-    {
-        global $connection,$error_flag;
-
-        $email = secure($email_id_unsafe);
-        $password = secure($password_unsafe);
-        $password_hashed = hash("sha256", $password);
-        $fullname = ucfirst(secure($full_name_unsafe));
-        $phonenumber = secure($phone_number_unsafe);
-
-        $sql;
-
-
-                $sql = "INSERT INTO users VALUES ('$email', '$password_hashed', '$fullname','$phonenumber');";
-            
-
-        if ($connection->query($sql) === true) {
-            echo status('record-success');
-            if ( $error_flag == 0) {
-                return login($email, $password);
-            }
-        } else {
-            echo status('record-fail');
-        }
-    }
-
-
-    function register($email_id_unsafe, $password_unsafe, $full_name_unsafe, $phone_number_unsafe ,$speciality_unsafe = 'doctor', $table = 'users')
+    function register($email_id_unsafe, $password_unsafe, $full_name_unsafe, $phone_number_unsafe, $blood_type_unsafe ,$speciality_unsafe = 'doctor', $table = 'users')
     {
         global $connection,$error_flag;
 
@@ -112,19 +83,19 @@
         $speciality = secure($speciality_unsafe);
         $fullname = ucfirst(secure($full_name_unsafe));
         $phonenumber = secure($phone_number_unsafe);
+        $bloodtype = secure($blood_type_unsafe);
 
         $sql;
 
         switch ($table) {
             case 'users':
-                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$phonenumber');";
+                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$phonenumber','$bloodtype');";
                 break;
             
             case 'clerks':
-                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$phonenumber');";
+                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$phonenumber','$bloodtype');";
                 break;
             default:
-                // code...
                 break;
         }
 
@@ -141,7 +112,7 @@
 
     
 
-    function registerD($email_id_unsafe, $password_unsafe, $full_name_unsafe,$speciality_unsafe = 'doctor',$phone_number_unsafe , $room_number_unsafe , $table = 'users')
+    function registerD($email_id_unsafe, $password_unsafe, $full_name_unsafe,$speciality_unsafe = 'doctor',$phone_number_unsafe , $room_number_unsafe,$blood_type_unsafe , $table = 'users')
     {
         global $connection,$error_flag;
 
@@ -152,16 +123,16 @@
         $fullname = ucfirst(secure($full_name_unsafe));
         $phonenumber = secure($phone_number_unsafe);
         $roomnumber = secure($room_number_unsafe);
+        $bloodtype = secure($blood_type_unsafe);
         $sql;
 
         switch ($table) {
            
             case 'doctors':
-                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$speciality','$phonenumber','$roomnumber');";
+                $sql = "INSERT INTO $table VALUES ('$email', '$password_hashed', '$fullname','$speciality','$phonenumber','$roomnumber','$bloodtype');";
                 break;
             
             default:
-                // code...
                 break;
         }
 
@@ -211,12 +182,11 @@
                 return "$fail Failed to update data! $end";
                 break;
             default:
-                // code...
                 break;
         }
     }
 
-  function enter_patient_info($full_name_unsafe, $age_unsafe, $weight_unsafe, $phone_no_unsafe, $address_unsafe)
+  function enter_patient_info($full_name_unsafe, $age_unsafe, $weight_unsafe, $phone_no_unsafe, $address_unsafe,$blood_type_unsafe)
   {
       global $connection, $error_flag,$result;
 
@@ -225,8 +195,9 @@
       $weight = secure($weight_unsafe);
       $phone_no = secure($phone_no_unsafe);
       $address = secure($address_unsafe);
+      $bloodtype = secure($blood_type_unsafe);
 
-      $sql = "INSERT INTO `patient_info` VALUES (NULL, '$full_name', $age,$weight, '$phone_no','$address');";
+      $sql = "INSERT INTO `patient_info` VALUES (NULL, '$full_name', $age,$weight, '$phone_no','$address','$bloodtype');";
 
       if ($connection->query($sql) === true) {
           echo status('record-success');
@@ -305,57 +276,9 @@
     {
         global $connection;
 
-        return $connection->query("SELECT appointment_no, full_name, dob, weight, phone_no, address, medical_condition FROM patient_info, appointments where appointment_no=$appointment_no AND patient_info.patient_id = appointments.patient_id;");
+        return $connection->query("SELECT appointment_no, full_name, dob, weight, phone_no, address, bloodtype, medical_condition FROM patient_info, appointments where appointment_no=$appointment_no AND patient_info.patient_id = appointments.patient_id;");
     }
 
-    // function get_table($purpose, $data)
-    // {
-    //     global $connection;
-
-    //     $sql;
-
-    //     switch ($purpose) {
-    //         case 'patient_information':
-    //             $sql = 'SELECT * FROM patient_info AND (SELECT )';
-    //             break;
-    //         case 'doctor-home':
-    //             $sql = '';
-
-    //             $result = $connection->query($sql);
-
-    //             echo "<table border='1'>
-	// 			<tr>
-	// 			<th>appointment_no</th>
-	// 			<th>patient_name</th>
-	// 			<th>age</th>
-	// 			<th>appointment_time</th>
-	// 			<th>medical_condition</th>
-	// 			<th>option</th>
-	// 			</tr>";
-
-    //             while ($row = $result->fetch_array()) {
-    //                 echo '<tr>';
-    //                 echo '<td>'.$row['appointment_no'].'</td>';
-    //                 echo '<td>'.$row['full_name'].'</td>';
-    //                 echo '<td>'.$row['age'].'</td>';
-    //                 echo '<td>'.$row['appointment_time'].'</td>';
-    //                 echo '<td>'.$row['medical_condition'].'</td>';
-    //                 echo "<td> <button class='btn btn-primary'> Open Case</button> <button class='btn btn-primary'> Close Case</button> </td>";
-    //                 echo '</tr>';
-    //             }
-    //             echo '</table>';
-    //             break;
-    //         case 'all':
-    //             $sql = 'SELECT * FROM patient_info AND (SELECT )';
-    //             break;
-    //         case 'patient_information':
-    //             $sql = 'SELECT * FROM patient_info AND (SELECT )';
-    //             break;
-    //         default:
-    //             // code...
-    //             break;
-    //     }
-    // }
 
     function appointment_status($appointment_no_unsafe)
     {

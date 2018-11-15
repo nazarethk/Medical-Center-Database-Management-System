@@ -85,6 +85,17 @@ session_start();
 							<i class="fa fa-phone" aria-hidden="true"></i>
 						</span>
 					</div>
+					<div class="wrap-input100">
+							<select class='form-control' required value="1" placeholder="BloodType" name="rBloodType">
+							<option value="A+" class="option">A+</option>
+							<option value="A-" class="option">A-</option>
+							<option value="O+" class="option">O+</option>
+							<option value="O-" class="option">O-</option>
+							<option value="AB" class="option">AB</option>
+							<option value="B+" class="option">B+</option>
+							<option value="B-" class="option">B-</option>
+							</select>
+					</div>
 					
 					<div class="form-group"style="margin-bottom: 0px;">
 						<div class="container-login100-form-btn">
@@ -131,34 +142,3 @@ session_start();
 </body>
 	
 </html>
-
-
-
-<!-----------------------------------------------------------
-
-
-  <div class="col col-xl-6 col-sm-6" id="register1">
-    <form method="post" action="index.php">
-	    <h2>Registration</h2>
-	      <div class="form-group">
-	        <label for="usr">Full Name:</label>
-	        <input type="text" class="form-control" name="rfullname" required>
-	      </div>
-        
-        <div class="form-group">
-	        <label for="usr">Email:</label>
-	        <input type="email" class="form-control" name="remail" required>
-	      </div>
-	          
-        <div class="form-group">
-	        <label for="pwd">Password:</label>
-	        <input type="password" class="form-control"  name="rpassword" required>
-	      </div>
-
-	      <div class="form-group">
-	        <input type="submit" class="btn btn-primary">
-	        <input type="reset" class="btn btn-danger"></button>
-	      </div>
-    </form>
-  </div>
-  ----->

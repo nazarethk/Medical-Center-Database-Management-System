@@ -22,13 +22,11 @@
   <?php 
     if(isset($_POST['demail'])){
   //doctors
-     
-      $i = registerD($_POST['demail'],$_POST['dpassword'],$_POST['dfullname'],$_POST['dSpecialist'],$_POST['dphonenumber'],$_POST['droomnumber'],"doctors");
+      $i = registerD($_POST['demail'],$_POST['dpassword'],$_POST['dfullname'],$_POST['dSpecialist'],$_POST['dphonenumber'],$_POST['droomnumber'],$_POST['dBloodType'],"doctors");
     }
     if(isset($_POST['aemail'])){
       //clerks
-     
-      $i = register($_POST['aemail'],$_POST['apassword'] ,$_POST['afullname'],$_POST['aphonenumber'],'non',"clerks");
+      $i = register($_POST['aemail'],$_POST['apassword'] ,$_POST['afullname'],$_POST['aphonenumber'],$_POST['aBloodType'],'non',"clerks");
     }
     if(isset($_POST['DrDelEmail'])){
       $i = delete("doctors",$_POST['DrDelEmail']);
@@ -60,12 +58,25 @@
           <input type="password" class="form-control"  minlength="8" name="apassword" required>
         </div>
 
+
+
         <div class="form-group">
           <label for="usr">Phone Number</label>
           <input type="text" class="form-control" name="aphonenumber" required>
         </div>
 
-  
+      <div class="form-group">
+          <label for="pwd">Blood Type:</label>
+            <select class='form-control' required value=1 name="aBloodType">
+              <option value="A+" class="option">A+</option>
+              <option value="A-" class="option">A-</option>
+              <option value="O+" class="option">O+</option>
+              <option value="O-" class="option">O-</option>
+              <option value="AB" class="option">AB</option>
+              <option value="B+" class="option">B+</option>
+              <option value="B-" class="option">B-</option>
+            </select>
+        </div>
 
         <div class="form-group">
           <input type="submit" class="btn btn-primary" style="width:45%;margin-right:10px;margin-left:10px;" value="Register">
@@ -77,7 +88,7 @@
 
       <div class="form-group">
                 <h2>Delete Clerk</h2>
-            <select class='form-control' required value=1 name="ClDelEmail">
+            <select class='form-control' value=1 name="ClDelEmail">
             <?php 
                 $result = getListOfEmails('clerks');
 
@@ -127,6 +138,19 @@
         <div class="form-group">
           <label for="usr">Room Number</label>
           <input type="text" class="form-control" name="droomnumber" required>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Blood Type:</label>
+            <select class='form-control' required value=1 name="dBloodType">
+              <option value="A+" class="option">A+</option>
+              <option value="A-" class="option">A-</option>
+              <option value="O+" class="option">O+</option>
+              <option value="O-" class="option">O-</option>
+              <option value="AB" class="option">AB</option>
+              <option value="B+" class="option">B+</option>
+              <option value="B-" class="option">B-</option>
+            </select>
         </div>
 
         <div class="form-group">

@@ -9,10 +9,8 @@
     <title> DentaCare Medical Center
     </title>
     <link rel="shortcut icon" type="image/png" href="../images/Caduceus-256.png"/>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
-    <link href="../bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="jumbotron.css" rel="stylesheet"> -->
-
+     <link href="../bootstrap.min.css" rel="stylesheet">
+    
   </head>
   <body style="background-image: linear-gradient(to bottom right,#ffffff 0%, #2cbcbc 100%);">
       <div class="container" style="padding-top: 10px;">

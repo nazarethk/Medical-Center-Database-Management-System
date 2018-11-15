@@ -3,13 +3,6 @@
       <footer>
         <h5 align="center">
         <?php
-       /* if(basename($_SERVER['PHP_SELF']) == 'index.php'){
-          echo '<a class="nav-link" href="staff.php">Staff</a>
-          </li>';
-        }*/
-              //  if (!isset($_SESSION['username'])) {
-                    
-               //}
                if(basename($_SERVER['PHP_SELF']) == 'staff.php'||basename($_SERVER['PHP_SELF']) == 'admin_home.php'||basename($_SERVER['PHP_SELF']) == 'register.php'){
                echo '<a class="nav-link" href="index.php">Home</a>
                   </li>';

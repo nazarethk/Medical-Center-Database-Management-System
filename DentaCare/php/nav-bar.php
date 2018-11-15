@@ -26,7 +26,6 @@
         echo $frontLink.'patient_info.php"> All Appointments '.$endLink;
         break;
       default:
-        // code...
         break;
     }
       echo '</ul> </nav></div>';

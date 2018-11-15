@@ -21,7 +21,7 @@
             <h3>Enter Information</h3>
             <?php
                   if(isset($_POST["apfullname"])){
-                    $i = enter_patient_info($_POST["apfullname"],$_POST['apAge'],$_POST['apweight'],$_POST['apphone_no'],$_POST['apaddress']);
+                    $i = enter_patient_info($_POST["apfullname"],$_POST['apAge'],$_POST['apweight'],$_POST['apphone_no'],$_POST['apaddress'],$_POST['aBloodType']);
                     appointment_booking($i, $_POST['apSpecialist'], $_POST['apCondition']);
                     unset($_POST['apfullname']); //unset all post variables
                     if (isset($_POST['apfullname'])){
@@ -66,6 +66,20 @@
                 <option value="Endocrinologist" class="option">Endocrinologist - Endocrine Expert</option>
               </select>
             </div>
+           
+
+            <div class="form-group">
+          <label for="pwd">Blood Type:</label>
+            <select  style="width:7%" required value=1 name="aBloodType">
+              <option value="A+" class="option">A+</option>
+              <option value="A-" class="option">A-</option>
+              <option value="O+" class="option">O+</option>
+              <option value="O-" class="option">O-</option>
+              <option value="AB" class="option">AB</option>
+              <option value="B+" class="option">B+</option>
+              <option value="B-" class="option">B-</option>
+            </select>
+        </div>
 
             <div class="form-group">
               <label for="pwd">Medical Condition / Purpose of visit:</label>

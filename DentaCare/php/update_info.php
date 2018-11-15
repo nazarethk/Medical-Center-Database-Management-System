@@ -36,13 +36,14 @@
       $link = "<tr><th>";
       $mid = "</th><td>";
       $endingTag = "</td></tr>";
-      echo "<tr>";   // appointment_no, full_name, dob, weight, phone_no, address, blood_group, medical_condition
+      echo "<tr>";  
       echo "$link Appointment No $mid". $row['appointment_no'] . "$endingTag";
       echo "$link Full Name $mid" . $row['full_name'] . "$endingTag";
       echo "$link Age (in years) $mid" . $row['dob'] . "$endingTag";
       echo "$link Weight $mid" . $row['weight'] . "$endingTag";
       echo "$link Phone No $mid" . $row['phone_no'] . "$endingTag";
       echo "$link Address $mid" . $row['address'] . "$endingTag";
+      echo "$link Age (in years) $mid" . $row['bloodtype'] . "$endingTag";
       echo "$link Medical Condition - $mid" . $row['medical_condition'] . "$endingTag";
       echo "$link Doctor's Suggestions - $mid" . "<form action='update_info.php' method='post'>
       <textarea class='form-group form-control' name='upSugg' required style='resize: none;'></textarea><input type='number' style='visibility: hidden; width; 1px;' name='appointment_no' value =". $appointment_no . "><input type='submit' class='btn btn-primary'></form>" . "$endingTag";

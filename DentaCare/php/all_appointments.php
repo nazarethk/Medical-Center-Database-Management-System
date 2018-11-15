@@ -26,7 +26,6 @@
 				<tr>
 				<th><center>Appointment No</center></th>
 				<th><center>Patient's Full Name</center></th>
-				<!-- <th><center>Medical Condition</center></th> -->
 				<th><center>Doctor Needed</center></th>
 				<th><center>Payment Amount</center></th>
 				<th><center>Case Closed?</center></th>
