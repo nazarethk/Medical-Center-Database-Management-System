@@ -8,7 +8,7 @@
     $servername='localhost';
     $username='root';
     $password='';
-    $connection = new mysqli($servername, $username, $password, 'hospital');
+    $connection = new mysqli($servername, $username, $password, 'MedicalCenter');
 
     $error_flag = 0;
     $result;
