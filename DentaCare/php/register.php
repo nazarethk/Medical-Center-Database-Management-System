@@ -86,7 +86,7 @@ session_start();
 						</span>
 					</div>
 					<div class="wrap-input100">
-							<select class='form-control' required value="1" placeholder="BloodType" name="rBloodType">
+							<select class='form-control' required value="1" name="rBloodType">
 							<option value="A+" class="option">A+</option>
 							<option value="A-" class="option">A-</option>
 							<option value="O+" class="option">O+</option>
@@ -113,6 +113,8 @@ session_start();
 				
 				</form>
 			</div>
+
+<?php include("footer.php"); ?>
 		</div>
 		
 </div>
@@ -138,7 +140,6 @@ session_start();
 
 
 
-<?php include("footer.php"); ?>
+
 </body>
-	
 </html>

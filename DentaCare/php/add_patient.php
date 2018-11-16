@@ -43,11 +43,11 @@
             </div>
             <div class="form-group">
               <label for="pwd">Weight (in kgs):</label>
-              <input type="tel" class="form-control" id="pwd" name="apweight" min="1" max="300" required>
+              <input type="text" class="form-control" id="pwd" name="apweight" min="1" max="300" required>
             </div>
             <div class="form-group">
               <label for="pwd">Phone No:</label>
-              <input type="tel" class="form-control" id="pwd" name="apphone_no" required>
+              <input type="text" class="form-control" id="pwd" name="apphone_no" required>
             </div>
             <div class="form-group">
               <label for="pwd">Address:</label>

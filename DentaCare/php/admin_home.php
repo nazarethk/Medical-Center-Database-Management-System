@@ -41,7 +41,7 @@
 <h1 align=center>Admin Panel for DentaCare Medical Center</h1>
       <div class="row">
           <div class="col-md-6 box1">
-          <form method="post" action="admin_home.php">
+    <form method="post" action="admin_home.php">
       <h2>Clerk Registration</h2>
         <div class="form-group">
           <label for="usr">Full Name:</label>
@@ -84,7 +84,7 @@
         </div>
     </form>
       <hr>
-                  <form method="post" action="admin_home.php">
+  <form method="post" action="admin_home.php">
 
       <div class="form-group">
                 <h2>Delete Clerk</h2>
@@ -109,11 +109,11 @@
             <input type="submit" class="btn btn-primary" style="padding: 5px;width:40%;margin-left:5px" value="Delete">
             </div>
 
-
+</form>
           
           </div>
           <div class="col-md-6 box2">
-          <form method="post" action="admin_home.php">
+    <form method="post" action="admin_home.php">
       <h2>Doctor Registration</h2>
         <div class="form-group">
           <label for="usr">Full Name:</label>
@@ -201,11 +201,9 @@
             </div>
           </form>
         </div>
-    </form>
+      </div>    
+    </div>
   </div>
-          </form>
-          </div>
-       </div>
 </div>
 
 <?php include("footer.php"); ?>
