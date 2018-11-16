@@ -5,7 +5,10 @@
     } 
 ?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<script src="../loginJS/main.js" defer></script>
+<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <?php 
   include("header.php");
   include("library.php");
@@ -38,57 +41,79 @@
   ?>
 
 <div class= "container">
-<h1 align=center>Admin Panel for DentaCare Medical Center</h1>
+<h2 align=center style="font-family: Poppins-Bold;">Admin Panel for DentaCare Medical Center</h2>
       <div class="row">
           <div class="col-md-6 box1">
     <form method="post" action="admin_home.php">
-      <h2>Clerk Registration</h2>
-        <div class="form-group">
-          <label for="usr">Full Name:</label>
-          <input type="text" class="form-control" name="afullname" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="usr">Email:</label>
-          <input type="email" class="form-control" name="aemail" required>
-        </div>
-            
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control"  minlength="8" name="apassword" required>
-        </div>
+    
+      <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 15px;">
+						Clerk Registration
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Fullname is required">
+						<input class="input100" style="background-color:white;margin-bottom:30px" type="text" name="afullname" placeholder="Full Name" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user-md" aria-hidden="true"></i>
+						</span>
+					</div>
+			
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: username@domain.com">
+						<input class="input100" type="email" style="background-color:white;margin-bottom:30px" name="aemail" placeholder="Email" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-
-
-        <div class="form-group">
-          <label for="usr">Phone Number</label>
-          <input type="text" class="form-control" name="aphonenumber" required>
-        </div>
-
-      <div class="form-group">
-          <label for="pwd">Blood Type:</label>
-            <select class='form-control' required value=1 name="aBloodType">
-              <option value="A+" class="option">A+</option>
-              <option value="A-" class="option">A-</option>
-              <option value="O+" class="option">O+</option>
-              <option value="O-" class="option">O-</option>
-              <option value="AB" class="option">AB</option>
-              <option value="B+" class="option">B+</option>
-              <option value="B-" class="option">B-</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" style="width:45%;margin-right:10px;margin-left:10px;" value="Register">
-          <input type="reset" name="" class="btn btn-danger" style="width:45%;"></button>
-        </div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required with a minimum of 8 characters">
+						<input class="input100" type="password"   style="background-color:white;margin-bottom:30px"  name="apassword" minlength="8" placeholder="Password" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Phone Number is required">
+						<input class="input100" type="text"  style="background-color:white;margin-bottom:29px"  name="aphonenumber" minlength="8" maxlength="12" placeholder="Phone Number" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100">
+							<select class='input100'  style="background-color:white;margin-bottom:30px"   required value="1" name="aBloodType">
+							<option value="A+" class="option">A+</option>
+							<option value="A-" class="option">A-</option>
+							<option value="O+" class="option">O+</option>
+							<option value="O-" class="option">O-</option>
+							<option value="AB" class="option">AB</option>
+							<option value="B+" class="option">B+</option>
+							<option value="B-" class="option">B-</option>
+							</select>
+					</div>
+					
+					<div class="form-group"style="margin-bottom: 0px;">
+						<div class="container-login100-form-btn">
+							<button type="submit" class="login100-form-btn" style="dislpay:flex;justify-content:center;width:100%;margin-bottom:5px;height:45px;" >
+								Register
+							</button>
+							<button type="reset" class="login100-form-btn btn-danger" style="dislpay:flex;justify-content:center;width:100%;height:45px;" >
+								Reset
+							</button>
+							
+						</div>
+					</div>
     </form>
       <hr>
   <form method="post" action="admin_home.php">
 
-      <div class="form-group">
-                <h2>Delete Clerk</h2>
-            <select class='form-control' value=1 name="ClDelEmail">
+    
+
+      <div class="wrap-input100">
+      <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 55px;">
+						Delete Clerk
+          </span>
+          <select class='input100' style="background-color:white" required value="1" name="ClDelEmail">
             <?php 
                 $result = getListOfEmails('clerks');
 
@@ -103,59 +128,77 @@
 
             ?>
             </select>
-            </div>
-            <div class="form-group">
-
-            <input type="submit" class="btn btn-primary" style="padding: 5px;width:40%;margin-left:5px" value="Delete">
-            </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 0px;">
+							<button type="submit" class="login100-form-btn btn-danger" style="dislpay:flex;justify-content:center;width:100%;margin-bottom:5px;height:45px;margin-top:15px;" >
+								Delete
+							</button>
+						</div>
 
 </form>
           
           </div>
           <div class="col-md-6 box2">
     <form method="post" action="admin_home.php">
-      <h2>Doctor Registration</h2>
-        <div class="form-group">
-          <label for="usr">Full Name:</label>
-          <input type="text" class="form-control" name="dfullname" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="usr">Email:</label>
-          <input type="email" class="form-control" name="demail" required>
-        </div>
-            
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" minlength="8" name="dpassword" required>
-        </div>
+    <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 15px;">
+						Doctor Registration
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Fullname is required">
+						<input class="input100" style="background-color:white" type="text" name="dfullname" placeholder="Full Name" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user-md" aria-hidden="true"></i>
+						</span>
+					</div>
+			
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: username@domain.com">
+						<input class="input100" type="email" style="background-color:white" name="demail" placeholder="Email" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-        <div class="form-group">
-          <label for="usr">Phone Number</label>
-          <input type="text" class="form-control" name="dphonenumber" required>
-        </div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required with a minimum of 8 characters">
+						<input class="input100" type="password"  style="background-color:white" name="dpassword" minlength="8" placeholder="Password" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Phone Number is required">
+						<input class="input100" type="text" style="background-color:white" name="dphonenumber" minlength="8" maxlength="12" placeholder="Phone Number" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+          </div>
 
-        <div class="form-group">
-          <label for="usr">Room Number</label>
-          <input type="text" class="form-control" name="droomnumber" required>
-        </div>
+          <div class="wrap-input100 validate-input" data-validate = "Phone Number is required">
+						<input class="input100" type="text" style="background-color:white" name="droomnumber" maxlength="3" placeholder="Room Number" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+						</span>
+          </div>
 
-        <div class="form-group">
-          <label for="pwd">Blood Type:</label>
-            <select class='form-control' required value=1 name="dBloodType">
-              <option value="A+" class="option">A+</option>
-              <option value="A-" class="option">A-</option>
-              <option value="O+" class="option">O+</option>
-              <option value="O-" class="option">O-</option>
-              <option value="AB" class="option">AB</option>
-              <option value="B+" class="option">B+</option>
-              <option value="B-" class="option">B-</option>
-            </select>
-        </div>
+          
 
-        <div class="form-group">
-          <label for="pwd">Speciality:</label>
-            <select class='form-control' required value=1 name="dSpecialist">
+					<div class="wrap-input100">
+							<select class='input100' style="background-color:white"  required value="1" name="dBloodType">
+							<option value="A+" class="option">A+</option>
+							<option value="A-" class="option">A-</option>
+							<option value="O+" class="option">O+</option>
+							<option value="O-" class="option">O-</option>
+							<option value="AB" class="option">AB</option>
+							<option value="B+" class="option">B+</option>
+							<option value="B-" class="option">B-</option>
+							</select>
+          </div>
+          
+          <div class="wrap-input100">
+            <select class='input100' style="background-color:white" required value="1" name="dSpecialist">
               <option value="Audiologist" class="option">Audiologist - Ear Expert</option>
               <option value="Allergist" class="option">Allergist - Allergy Expert</option>
               <option value="Anesthesiologist" class="option">Anesthesiologist - Anesthetic Expert</option>
@@ -165,10 +208,17 @@
               <option value="Endocrinologist" class="option">Endocrinologist - Endocrine Expert</option>
             </select>
         </div>
-
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" style="width:45%;margin-left:10px;margin-right:10px" value="Register">
-          <input type="reset" name="" class="btn btn-danger" style="width:45%;"></button>
+          
+					<div class="form-group" style="margin-bottom: 0px;">
+						
+							<button type="submit" class="login100-form-btn" style="dislpay:flex;justify-content:center;width:100%;margin-bottom:5px;height:45px;" >
+								Register
+							</button>
+							<button type="reset" class="login100-form-btn btn-danger" style="dislpay:flex;justify-content:center;width:100%;margin-bottom:5px;height:45px;" >
+								Reset
+							</button>
+							
+						
         </div>
     </form>
 
@@ -177,8 +227,10 @@
      <form method="post" action="admin_home.php">
 
         <div class="form-group">
-                <h2>Delete Doctor</h2>
-            <select class='form-control' required value=1 name="DrDelEmail">
+        <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 55px;">
+						Delete Doctor
+					</span>
+            <select class='input100' style="background-color:white" required value="1" name="DrDelEmail">
 
             <?php 
                 $result = getListOfEmails('doctors');
@@ -196,9 +248,11 @@
 
             ?>
             </select></div>
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary" style="padding: 5px;width:40%;margin-left:5px" value="Delete">
-            </div>
+            <div class="form-group" style="margin-bottom: 0px;">
+							<button type="submit" class="login100-form-btn btn-danger" style="dislpay:flex;justify-content:center;width:100%;margin-bottom:5px;height:45px;" >
+								Delete
+							</button>
+						</div>
           </form>
         </div>
       </div>    
