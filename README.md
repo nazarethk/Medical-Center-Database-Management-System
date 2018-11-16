@@ -5,3 +5,5 @@ This repository contains the final project of this course: DentaCare Medical Cen
 
 # DentaCare Medical Center
 This project is a management system for a medical center.
+
+Note: For best performance, use Google Chrome.
