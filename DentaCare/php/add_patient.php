@@ -87,8 +87,8 @@
             </div>
 
             <div class="form-group">
-              <input type="submit" class="btn btn-primary"  style="width:15%; margin-right:10px;">
-              <input type="reset" name="" class="btn btn-danger" style="width:15%;">
+              <input type="submit" class="btn btn-primary"  style="width:15%; margin-right:10px; margin-bottom: 15px;">
+              <input type="reset" name="" class="btn btn-danger" style="width:15%;margin-bottom: 15px;">
             </div>
           </form>
 </div>

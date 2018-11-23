@@ -110,7 +110,7 @@
     
 
       <div class="wrap-input100">
-      <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 55px;">
+      <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 75px;">
 						Delete Clerk
           </span>
           <select class='input100' style="background-color:white" required value="1" name="ClDelEmail">
@@ -227,7 +227,7 @@
      <form method="post" action="admin_home.php">
 
         <div class="form-group">
-        <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 55px;">
+        <span class="login100-form-title" style="padding-bottom: 35px;padding-top: 75px;">
 						Delete Doctor
 					</span>
             <select class='input100' style="background-color:white" required value="1" name="DrDelEmail">

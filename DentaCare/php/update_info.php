@@ -46,7 +46,7 @@
       echo "$link Age (in years) $mid" . $row['bloodtype'] . "$endingTag";
       echo "$link Medical Condition - $mid" . $row['medical_condition'] . "$endingTag";
       echo "$link Doctor's Suggestions - $mid" . "<form action='update_info.php' method='post'>
-      <textarea class='form-group form-control' name='upSugg' required style='resize: none;'></textarea><input type='number' style='visibility: hidden; width; 1px;' name='appointment_no' value =". $appointment_no . "><input type='submit' class='btn btn-primary'></form>" . "$endingTag";
+      <textarea class='form-group form-control' name='upSugg' required style='resize: none;'></textarea><input type='number' style='visibility: hidden; width; 1px;' name='appointment_no' value =". $appointment_no . "><input type='submit' class='btn btn-primary' style='display:flex; width:100px; justify-content: center; margin-top: -15px;'></form>" . "$endingTag";
       echo "</tr>";
     }
   }
