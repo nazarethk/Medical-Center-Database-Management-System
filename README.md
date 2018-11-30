@@ -8,4 +8,4 @@ This project is a management system for a medical center.
 **************************************************************
  Notes: 
  1. Now supporting all browsers.
- 2. Not mobile friendly yet...
+ 2. Mobile Friendly :D

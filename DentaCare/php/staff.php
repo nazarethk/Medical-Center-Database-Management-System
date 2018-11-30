@@ -51,16 +51,52 @@
         }
       }
     ?>
- 
- <h1 style="display:flex; justify-content:center;"> DentaCare Medical Center</h1>
-		<p class="block-quote" style="color: #003399; display:flex; justify-content:center;">Always bringing world–class medical care for everyone.</p>
+
+		<style>
+			@media (max-width: 992px) {
+				#title{
+					margin-top:25px;
+					font-size: 25px !important;
+					display:flex;
+					justify-content:center;
+				}
+				#subtitle{
+					font-size: 12px;
+				}
+				#mobile{
+					margin-top: -80px;
+					padding-top: 100px;
+					margin-right: auto;
+					margin-left: auto;
+					width: 100%;
+					min-height: 70vh;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: center;
+				}
+			}	
+			@media (min-width: 992px) {
+				#title{
+					display:flex;
+					justify-content:center;
+				}
+
+				#subtitle{
+					display:flex;
+					justify-content:center;
+				}
+			}
+		</style>
+    <h1 id="title"> DentaCare Medical Center</h1>
+		<p class="block-quote" id="subtitle" style="color: #003399; display:flex; justify-content:center;">Always bringing world–class medical care for everyone.</p>
   
 <body class="container" style="background-image: linear-gradient(to bottom right,#ffffff 0%, #2cbcbc 100%);">
+	
+	<div class="wrap-login100" style="margin-top: -105px;padding-top: 100px;margin-right: auto; margin-left: auto; width: 100%;min-height: 70vh;display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
 
-
-<div class="wrap-login100" style="margin-top: -105px;padding-top: 100px;margin-right: auto; margin-left: auto;">
-  <div class="login100-pic js-tilt" data-tilt>
-    <img src="../images/img-01.png" style="padding-bottom: 75px" alt="IMG">
+		<div class="login100-pic js-tilt" data-tilt>
+    <img src="../images/img-01.png" style="padding-bottom: 75px; margin-left: -50px;" alt="IMG">
   </div>
   
   <form class="login100-form validate-form" action="staff.php" method="POST">

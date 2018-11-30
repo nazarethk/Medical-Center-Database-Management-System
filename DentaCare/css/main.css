@@ -368,6 +368,12 @@ iframe {
 
 
 @media (max-width: 992px) {
+
+h1{
+  font-size:25px;
+}
+
+
   .wrap-login100 {
     padding: 177px 90px 33px 85px;
   }
